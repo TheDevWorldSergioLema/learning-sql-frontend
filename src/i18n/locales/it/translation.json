@@ -1,0 +1,387 @@
+{
+  "app": {
+    "name": "Mattone dopo mattone SQL"
+  },
+  "language": {
+    "label": "Lingua",
+    "names": {
+      "en": "English",
+      "fr": "Français",
+      "es": "Español",
+      "it": "Italiano",
+      "de": "Deutsch"
+    }
+  },
+  "codeComments": {
+    "everyColumn": "* significa tutte le colonne",
+    "biggestFirst": "la più grande per prima",
+    "moreThan30": "più di 30, 30 escluso",
+    "startsWithB": "inizia con B",
+    "before2024": "aggiunti prima del 2024",
+    "bothIncluded": "10 e 30 inclusi",
+    "monthAsText": "'09', '10', '11'... come testo",
+    "fixTheTypes": "Il testo e le date vogliono gli apici, i numeri no",
+    "otherColumnsEmpty": "l'id lo sceglie il database, le altre colonne restano vuote",
+    "doubleIt": "il nuovo valore è calcolato da quello vecchio"
+  },
+  "steps": {
+    "label": "Passi",
+    "step": "Passo {{number}}: {{title}}",
+    "stepDone": "Passo {{number}}: {{title}}, completato",
+    "tooltip": "{{number}}. {{title}}"
+  },
+  "lesson": {
+    "meta": "Passo {{step}} di {{total}}",
+    "goal": "Il tuo obiettivo: ",
+    "firstHint": "Ti serve un indizio?",
+    "nextHint": "Un altro indizio",
+    "hintCount": "{{current}} di {{total}}",
+    "showSolution": "Mostrami la soluzione",
+    "confirmLabel": "Sostituire la tua query con la soluzione?",
+    "confirmText": "La tua query verrà sostituita dalla soluzione.",
+    "replaceCode": "Sostituisci la mia query",
+    "keepTrying": "Continuo a provare"
+  },
+  "editor": {
+    "label": "Editor SQL",
+    "file": "query.sql",
+    "code": "Query SQL",
+    "startOver": "Ricomincia",
+    "note": "La tua query viene eseguita mentre scrivi, su una copia nuova del database del negozio di mattoncini."
+  },
+  "results": {
+    "label": "Database",
+    "address": "brickshop.db · passo {{step}}",
+    "showExpected": "Mostra l'atteso",
+    "tabs": "Risultato e tabelle",
+    "result": "Risultato",
+    "loading": "Apertura del database…",
+    "loadError": "Non è stato possibile aprire il database. Ricarica la pagina per riprovare.",
+    "empty": "Scrivi una query nell'editor per vederne qui il risultato.",
+    "error": "Correggi l'errore per vedere il risultato.",
+    "noTable": "Questa query non ha restituito nessuna tabella: iniziala con `SELECT` per leggere i dati.",
+    "noRows": "Nessuna riga",
+    "expected": "Risultato atteso",
+    "yours": "Il tuo risultato",
+    "tableAfter": "La tabella `{{table}}` dopo la tua query",
+    "rows_one": "{{count}} riga",
+    "rows_other": "{{count}} righe",
+    "changes_one": "{{count}} riga modificata",
+    "changes_other": "{{count}} righe modificate",
+    "null": "NULL",
+    "rowMatches": "riga attesa",
+    "rowOff": "riga non attesa"
+  },
+  "check": {
+    "title": "Verifica",
+    "count_one": "{{passed}} controllo superato su {{count}}",
+    "count_other": "{{passed}} controlli superati su {{count}}",
+    "error": "Errore SQLite:",
+    "empty": "L'editor è vuoto.",
+    "noTable": "La query non ha restituito nessuna tabella.",
+    "ok": "corretto",
+    "pending": "correggi prima le righe sopra",
+    "items": {
+      "columns": "Colonne",
+      "rows": "Righe",
+      "values": "Valori",
+      "order": "Ordine"
+    },
+    "issues": {
+      "missingColumns": "manca {{columns}}",
+      "extraColumns": "di troppo: {{columns}}",
+      "tooManyRows_one": "{{count}} riga di troppo",
+      "tooManyRows_other": "{{count}} righe di troppo",
+      "tooFewRows_one": "manca {{count}} riga",
+      "tooFewRows_other": "mancano {{count}} righe",
+      "missingRows_one": "{{count}} riga attesa manca o è diversa",
+      "missingRows_other": "{{count}} righe attese mancano o sono diverse",
+      "wrongOrder": "le righe non sono nell'ordine giusto"
+    },
+    "solved": "Passo completato!",
+    "finished": "Hai completato tutti i passi!",
+    "nextStep": "Passo successivo"
+  },
+  "levels": {
+    "select-all": {
+      "title": "La tua prima query",
+      "intro": [
+        "Un database tiene i suoi dati in tabelle, come fogli di calcolo: ogni riga è una cosa, ogni colonna un dettaglio su di essa. Il negozio di mattoncini ha due tabelle: `bricks` e `orders`. Guardale nelle schede a destra.",
+        "Per leggere una tabella, scrivi `SELECT`, le colonne che vuoi, `FROM` e il nome della tabella. L'asterisco `*` significa tutte le colonne. Una query termina con `;`."
+      ],
+      "goal": "La query legge la tabella `orders`. Modificala per mostrare tutte le colonne della tabella `bricks`.",
+      "hints": [
+        "Tieni `SELECT * FROM` e cambia solo il nome della tabella.",
+        "Il nome della tabella è `bricks`, in minuscolo, con la s.",
+        "`SELECT * FROM bricks;`"
+      ],
+      "recap": "`SELECT * FROM bricks;` legge tutte le righe e tutte le colonne di una tabella."
+    },
+    "pick-columns": {
+      "title": "Solo le colonne che servono",
+      "intro": [
+        "`*` è comodo per scoprire una tabella, ma di solito servono solo alcune colonne. Elencale dopo `SELECT`, separate da virgole.",
+        "Le colonne compaiono nel risultato nell'ordine in cui le scrivi."
+      ],
+      "goal": "Mostra solo il `name` e il `price` di ogni mattoncino, in quest'ordine.",
+      "hints": [
+        "Sostituisci il `*` con i nomi delle colonne.",
+        "Separa le colonne con una virgola: `name, price`.",
+        "`SELECT name, price FROM bricks;`"
+      ],
+      "recap": "`SELECT name, price` sceglie le colonne, nell'ordine in cui le scrivi."
+    },
+    "rename-columns": {
+      "title": "Rinominare una colonna",
+      "intro": [
+        "Le colonne del risultato prendono il nome delle colonne della tabella. `AS` dà un altro nome a una colonna nel risultato, senza cambiare la tabella.",
+        "Un nome senza spazi è il più semplice: `in_stock` piuttosto che `in stock`."
+      ],
+      "goal": "Mostra il nome di ogni mattoncino come `brick` e la sua scorta come `in_stock`.",
+      "hints": [
+        "Scrivi `AS` e il nuovo nome subito dopo una colonna: `name AS brick`.",
+        "Rinomina entrambe le colonne, con una virgola in mezzo.",
+        "`SELECT name AS brick, stock AS in_stock FROM bricks;`"
+      ],
+      "recap": "`AS` rinomina una colonna solo nel risultato: la tabella mantiene i nomi delle sue colonne."
+    },
+    "sort-rows": {
+      "title": "Ordinare le righe",
+      "intro": [
+        "Senza istruzioni, il database restituisce le righe in un ordine qualsiasi. `ORDER BY` le ordina secondo una colonna, dopo il `FROM`.",
+        "L'ordine è crescente (il più piccolo per primo) per impostazione predefinita. Aggiungi `DESC` dopo la colonna per un ordine decrescente (il più grande per primo)."
+      ],
+      "goal": "Mostra il nome e il prezzo di ogni mattoncino, il più caro per primo.",
+      "hints": [
+        "Aggiungi `ORDER BY price` alla fine della query, prima del `;`.",
+        "Il più caro per primo è decrescente: aggiungi `DESC`.",
+        "`SELECT name, price FROM bricks ORDER BY price DESC;`"
+      ],
+      "recap": "`ORDER BY price DESC` ordina dal valore più grande al più piccolo; `ASC`, il predefinito, fa il contrario."
+    },
+    "where-number": {
+      "title": "Filtrare le righe",
+      "intro": [
+        "`WHERE` tiene solo le righe che rispettano una condizione. Va dopo il `FROM`: `WHERE stock = 0` tiene le righe la cui scorta è zero.",
+        "I numeri si scrivono così come sono, senza apici. In SQL, un solo `=` confronta due valori."
+      ],
+      "goal": "Mostra il nome e la scorta dei mattoncini esauriti (una scorta di 0).",
+      "hints": [
+        "Aggiungi una riga `WHERE` dopo `FROM bricks`.",
+        "La condizione confronta la colonna `stock` con `0`.",
+        "`SELECT name, stock FROM bricks WHERE stock = 0;`"
+      ],
+      "recap": "`WHERE stock = 0` tiene solo le righe in cui la condizione è vera."
+    },
+    "where-compare": {
+      "title": "Più di, meno di",
+      "intro": [
+        "I numeri si confrontano con `<` (minore di), `>` (maggiore di), `<=` (minore o uguale), `>=` (maggiore o uguale) e `<>` (diverso).",
+        "I decimali si scrivono con il punto: `0.30`."
+      ],
+      "goal": "Mostra il nome e il prezzo dei mattoncini che costano 0.30 o più.",
+      "hints": [
+        "`= 0.30` tiene solo i mattoncini a esattamente 0.30: serve un altro operatore.",
+        "0.30 incluso significa maggiore o uguale: `>=`.",
+        "`SELECT name, price FROM bricks WHERE price >= 0.30;`"
+      ],
+      "recap": "`>=` include il valore stesso, `>` lo esclude."
+    },
+    "where-text": {
+      "title": "Il testo vuole gli apici",
+      "intro": [
+        "I valori di testo si scrivono tra apici singoli: `'blue'`. Senza apici, il database legge `blue` come il nome di una colonna e si lamenta che non esiste.",
+        "Il testo deve corrispondere esattamente: `'blue'` e `'Blue'` sono valori diversi."
+      ],
+      "goal": "Mostra il nome e il colore dei mattoncini blu (`blue`).",
+      "hints": [
+        "Aggiungi una condizione sulla colonna `color`.",
+        "Scrivi il colore tra apici singoli: `'blue'`.",
+        "`SELECT name, color FROM bricks WHERE color = 'blue';`"
+      ],
+      "recap": "Il testo va tra apici singoli; i nomi di colonne e tabelle no."
+    },
+    "where-like": {
+      "title": "Un testo che inizia con…",
+      "intro": [
+        "`=` confronta il testo intero: nessun mattoncino si chiama solo `'Classic'`. `LIKE` confronta il testo con un modello, dove `%` sta per qualsiasi carattere, anche nessuno.",
+        "`'Classic%'` corrisponde a ogni testo che inizia con Classic, `'%2'` a ogni testo che finisce con 2, `'%x%'` a ogni testo che contiene una x."
+      ],
+      "goal": "Mostra il nome e i bottoncini di ogni mattoncino Classic (il loro nome inizia con Classic).",
+      "hints": [
+        "Sostituisci `=` con `LIKE`.",
+        "Aggiungi `%` subito dopo la parola, dentro gli apici.",
+        "`SELECT name, studs FROM bricks WHERE name LIKE 'Classic%';`"
+      ],
+      "recap": "`LIKE 'Classic%'` confronta con un modello: `%` sta per qualsiasi carattere."
+    },
+    "where-date": {
+      "title": "Le date",
+      "intro": [
+        "Le date si scrivono come testo, tra apici, nel formato anno-mese-giorno: `'2024-11-01'`. In quest'ordine, la data più vecchia è anche la più piccola: `<` significa prima e `>` dopo.",
+        "Usa sempre due cifre per il mese e il giorno: `'2024-11-01'`, non `'2024-11-1'`."
+      ],
+      "goal": "Mostra il cliente e la data degli ordini fatti il 1° novembre 2024 o dopo.",
+      "hints": [
+        "Aggiungi una condizione sulla colonna `ordered_on`.",
+        "Il 1° novembre o dopo significa `>=` con la data `'2024-11-01'`.",
+        "`SELECT customer, ordered_on FROM orders WHERE ordered_on >= '2024-11-01';`"
+      ],
+      "recap": "Le date vanno tra apici, nel formato anno-mese-giorno: si confrontano come numeri, la più vecchia è la più piccola."
+    },
+    "where-and": {
+      "title": "Entrambe le condizioni: AND",
+      "intro": [
+        "`AND` unisce due condizioni: una riga viene tenuta solo se sono vere entrambe. Ogni condizione è completa da sola: `color = 'white' AND stock > 10`.",
+        "Più condizioni unisci con `AND`, meno righe ci sono nel risultato."
+      ],
+      "goal": "Mostra i mattoncini bianchi (`white`) che hanno più di 10 pezzi in magazzino.",
+      "hints": [
+        "Tieni la condizione sul colore e aggiungine una seconda con `AND`.",
+        "La seconda condizione è `stock > 10`.",
+        "`SELECT name, color, stock FROM bricks WHERE color = 'white' AND stock > 10;`"
+      ],
+      "recap": "Con `AND`, una riga deve rispettare tutte le condizioni."
+    },
+    "where-or": {
+      "title": "L'una o l'altra: OR",
+      "intro": [
+        "Anche `OR` unisce due condizioni, ma una riga viene tenuta appena almeno una di esse è vera.",
+        "Ripeti la colonna in ogni condizione: `color = 'red' OR color = 'green'`. `color = 'red' OR 'green'` non funziona."
+      ],
+      "goal": "Mostra i mattoncini rossi (`red`) e i mattoncini verdi (`green`).",
+      "hints": [
+        "Aggiungi una seconda condizione con `OR`.",
+        "Anche la seconda condizione è completa: `color = 'green'`.",
+        "`SELECT name, color FROM bricks WHERE color = 'red' OR color = 'green';`"
+      ],
+      "recap": "Con `OR`, una riga deve rispettare almeno una condizione."
+    },
+    "and-or": {
+      "title": "AND e OR insieme",
+      "intro": [
+        "Quando una condizione li mescola, `AND` viene prima, come × prima di + in matematica. `a OR b AND c` significa `a OR (b AND c)`.",
+        "Le parentesi scelgono l'ordine: `(a OR b) AND c` valuta prima l'`OR`."
+      ],
+      "goal": "La query restituisce 4 mattoncini, ma dovrebbe restituire solo i mattoncini rossi o gialli che costano meno di 0.25. Correggila.",
+      "hints": [
+        "Per ora vengono tenuti tutti i mattoncini rossi, qualunque sia il prezzo: il prezzo vale solo per i gialli.",
+        "Metti le parentesi attorno ai due colori.",
+        "`WHERE (color = 'red' OR color = 'yellow') AND price < 0.25`"
+      ],
+      "recap": "`AND` viene prima di `OR`: aggiungi le parentesi ogni volta che li mescoli, così la query fa quello che intendi."
+    },
+    "where-in": {
+      "title": "Uno di una lista: IN",
+      "intro": [
+        "Tanti `OR` sulla stessa colonna diventano lunghi. `IN` controlla che un valore sia in una lista: `customer IN ('Ana', 'Ben')` significa `customer = 'Ana' OR customer = 'Ben'`.",
+        "La lista va tra parentesi, con i valori separati da virgole."
+      ],
+      "goal": "Mostra il cliente e la quantità degli ordini di Ana, Chloe e Farid.",
+      "hints": [
+        "Aggiungi `WHERE customer IN (...)`.",
+        "Ogni nome è testo: tra apici, separati da virgole.",
+        "`WHERE customer IN ('Ana', 'Chloe', 'Farid')`"
+      ],
+      "recap": "`IN (...)` è un modo breve di scrivere più `OR` sulla stessa colonna."
+    },
+    "date-between": {
+      "title": "Un periodo: BETWEEN",
+      "intro": [
+        "`BETWEEN` tiene i valori da un inizio a una fine, entrambi inclusi: `quantity BETWEEN 10 AND 30` significa `quantity >= 10 AND quantity <= 30`.",
+        "Funziona con i numeri, e con le date scritte anno-mese-giorno."
+      ],
+      "goal": "Mostra il nome e la data dei mattoncini aggiunti dal 1° marzo al 30 giugno 2024.",
+      "hints": [
+        "Aggiungi una condizione su `added_on` con `BETWEEN ... AND ...`.",
+        "Entrambe le date sono testo tra apici: `'2024-03-01'` e `'2024-06-30'`.",
+        "`WHERE added_on BETWEEN '2024-03-01' AND '2024-06-30'`"
+      ],
+      "recap": "`BETWEEN` include entrambi gli estremi dell'intervallo."
+    },
+    "date-parts": {
+      "title": "Una parte della data",
+      "intro": [
+        "`strftime` estrae una parte di una data: `strftime('%Y', added_on)` dà l'anno, `'%m'` il mese, `'%d'` il giorno.",
+        "Attenzione ai tipi: il risultato è testo, quindi confrontalo con del testo, `'2023'`, non con il numero `2023`."
+      ],
+      "goal": "Mostra il nome e la data dei mattoncini aggiunti nel 2023.",
+      "hints": [
+        "Aggiungi una condizione che confronti `strftime('%Y', added_on)` con l'anno.",
+        "L'anno è testo: scrivilo tra apici.",
+        "`WHERE strftime('%Y', added_on) = '2023'`"
+      ],
+      "recap": "`strftime` restituisce testo: `'2023'` corrisponde, il numero `2023` no."
+    },
+    "insert-row": {
+      "title": "Aggiungere una riga: INSERT",
+      "intro": [
+        "`INSERT INTO` aggiunge una riga a una tabella: l'elenco delle colonne, poi `VALUES` con un valore per colonna, nello stesso ordine.",
+        "Ogni valore deve avere il tipo giusto: i numeri così come sono, il testo e le date tra apici."
+      ],
+      "goal": "Aggiungi il mattoncino verde Classic 1x2 (id 11) alla tabella `bricks`: correggi i valori perché la query funzioni.",
+      "hints": [
+        "Il database si ferma a `Classic 1x2`: il testo vuole gli apici.",
+        "Anche `'green'` è testo, e così la data: senza apici, `2024-11-09` è una sottrazione.",
+        "`VALUES (11, 'Classic 1x2', 'green', 2, 0.10, 60, '2024-11-09');`"
+      ],
+      "recap": "I numeri così come sono, il testo e le date tra apici: ogni valore con il suo tipo, nell'ordine delle colonne."
+    },
+    "insert-defaults": {
+      "title": "Lascia completare il database",
+      "intro": [
+        "Un `id` dichiarato `INTEGER PRIMARY KEY` viene scelto dal database quando lo ometti: il prossimo numero libero. Due righe non possono avere lo stesso id.",
+        "Una colonna con un `DEFAULT` prende il suo valore predefinito quando la ometti: lo stato di un ordine è `'pending'`."
+      ],
+      "goal": "L'ordine di Gina fallisce: l'id 1 è già occupato. Inseriscilo di nuovo lasciando che il database scelga l'`id` e lo `status`.",
+      "hints": [
+        "Togli `id` e `status` dall'elenco delle colonne.",
+        "Togli anche i loro valori: i valori devono corrispondere alle colonne, uno per uno.",
+        "`INSERT INTO orders (customer, brick_id, quantity, ordered_on) VALUES ('Gina', 3, 20, '2024-11-12');`"
+      ],
+      "recap": "Ometti una colonna e il database la riempie: il prossimo id, il valore predefinito o `NULL`."
+    },
+    "update-one": {
+      "title": "Modificare una riga: UPDATE",
+      "intro": [
+        "`UPDATE` modifica righe che esistono già: `UPDATE` la tabella, `SET` la colonna al nuovo valore, e `WHERE` per scegliere le righe.",
+        "Senza `WHERE`, cambiano tutte le righe della tabella. Scrivi prima il `WHERE`, per sicurezza."
+      ],
+      "goal": "La Plate 1x6 gialla (id 3) è tornata: porta la sua scorta a 200, senza modificare nessun altro mattoncino.",
+      "hints": [
+        "Sostituisci il `SELECT` con `UPDATE bricks SET ...`.",
+        "Tieni `WHERE id = 3` per modificare solo questo mattoncino.",
+        "`UPDATE bricks SET stock = 200 WHERE id = 3;`"
+      ],
+      "recap": "`UPDATE ... SET ... WHERE` modifica solo le righe scelte dal `WHERE`."
+    },
+    "update-math": {
+      "title": "Calcolare il nuovo valore",
+      "intro": [
+        "Il nuovo valore si può calcolare da quello attuale: `quantity * 2` raddoppia la quantità di ogni riga. Puoi usare `+`, `-`, `*` e `/`.",
+        "Ogni riga è calcolata dal proprio valore, quindi una sola query modifica tante righe in modo diverso."
+      ],
+      "goal": "Aumenta di 0.05 il prezzo di ogni mattoncino rosso, partendo dal suo prezzo attuale.",
+      "hints": [
+        "`price = 0.50` dà lo stesso prezzo a tutti i mattoncini rossi: calcolalo invece da `price`.",
+        "Aggiungi 0.05 al prezzo attuale: `price + 0.05`.",
+        "`UPDATE bricks SET price = price + 0.05 WHERE color = 'red';`"
+      ],
+      "recap": "`SET price = price + 0.05` calcola il nuovo valore di ogni riga dal suo valore attuale."
+    },
+    "update-where": {
+      "title": "Spedire gli ordini in ritardo",
+      "intro": [
+        "Questa query non ha `WHERE`: spedisce tutti gli ordini, anche quelli annullati. Dimenticare il `WHERE` è l'errore più comune con `UPDATE`.",
+        "Usa quello che hai imparato: condizioni unite con `AND`, il testo e le date tra apici."
+      ],
+      "goal": "Spedisci (stato `'shipped'`) solo gli ordini in attesa fatti prima del 1° novembre 2024.",
+      "hints": [
+        "Aggiungi un `WHERE` con due condizioni unite da `AND`.",
+        "Una condizione su `status`, una su `ordered_on` con `<`.",
+        "`UPDATE orders SET status = 'shipped' WHERE status = 'pending' AND ordered_on < '2024-11-01';`"
+      ],
+      "recap": "Sai leggere, filtrare, aggiungere e modificare dati: `SELECT`, `WHERE`, `INSERT` e `UPDATE` sono la base di ogni database SQL."
+    }
+  }
+}

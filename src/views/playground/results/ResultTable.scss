@@ -1,0 +1,96 @@
+@use 'config' as *;
+@use 'typography' as *;
+
+.result {
+  display: grid;
+  gap: $spacing-3;
+  min-width: 0;
+}
+
+.result-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $spacing-2 $spacing-6;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+}
+
+.result-count {
+  font-weight: $font-weight-regular;
+  color: $color-ink-soft;
+}
+
+.result-scroll {
+  overflow-x: auto;
+  background: $color-panel;
+  border: $border-width solid $color-line;
+  border-radius: $radius-lg;
+}
+
+.result table {
+  width: 100%;
+  border-collapse: collapse;
+  @include code($font-size-xs);
+  line-height: $line-height-code;
+
+  th,
+  td {
+    padding: $spacing-2 $spacing-6;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: $border-width solid $color-panel-sunk;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    background: $color-panel-sunk;
+    font-weight: $font-weight-semibold;
+    border-bottom-color: $color-line;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+}
+
+.cell-number {
+  text-align: right;
+  color: $color-blue;
+}
+
+.cell-null,
+.cell-empty {
+  color: $color-ink-faint;
+  font-style: italic;
+}
+
+.row-ok td:first-child {
+  box-shadow: inset $border-width-accent 0 0 $color-green;
+}
+
+.row-off {
+  background: $color-error-soft;
+
+  td:first-child {
+    box-shadow: inset $border-width-accent 0 0 $color-red;
+  }
+}
+
+// The target, drawn like the dashed outlines of the bricks to build.
+.result-expected {
+  .result-caption {
+    color: $color-ink-soft;
+  }
+
+  .result-scroll {
+    background: transparent;
+    border: $border-width-thick dashed $color-ink-faint;
+  }
+
+  th {
+    background: transparent;
+  }
+}
