@@ -1,0 +1,387 @@
+{
+  "app": {
+    "name": "Brick by Brick SQL"
+  },
+  "language": {
+    "label": "Language",
+    "names": {
+      "en": "English",
+      "fr": "Français",
+      "es": "Español",
+      "it": "Italiano",
+      "de": "Deutsch"
+    }
+  },
+  "codeComments": {
+    "everyColumn": "* means every column",
+    "biggestFirst": "biggest first",
+    "moreThan30": "more than 30, 30 excluded",
+    "startsWithB": "starts with B",
+    "before2024": "added before 2024",
+    "bothIncluded": "10 and 30 included",
+    "monthAsText": "'09', '10', '11'... as text",
+    "fixTheTypes": "Text and dates need quotes, numbers don't",
+    "otherColumnsEmpty": "id is picked by the database, the other columns stay empty",
+    "doubleIt": "the new value is computed from the old one"
+  },
+  "steps": {
+    "label": "Steps",
+    "step": "Step {{number}}: {{title}}",
+    "stepDone": "Step {{number}}: {{title}}, done",
+    "tooltip": "{{number}}. {{title}}"
+  },
+  "lesson": {
+    "meta": "Step {{step}} of {{total}}",
+    "goal": "Your goal: ",
+    "firstHint": "Need a hint?",
+    "nextHint": "Another hint",
+    "hintCount": "{{current}} of {{total}}",
+    "showSolution": "Show me the solution",
+    "confirmLabel": "Replace your query with the solution?",
+    "confirmText": "This replaces your query with the solution.",
+    "replaceCode": "Replace my query",
+    "keepTrying": "Keep trying"
+  },
+  "editor": {
+    "label": "SQL editor",
+    "file": "query.sql",
+    "code": "SQL query",
+    "startOver": "Start over",
+    "note": "Your query runs as you type, on a fresh copy of the brick shop database."
+  },
+  "results": {
+    "label": "Database",
+    "address": "brickshop.db · step {{step}}",
+    "showExpected": "Show expected",
+    "tabs": "Result and tables",
+    "result": "Result",
+    "loading": "Opening the database…",
+    "loadError": "The database could not be opened. Reload the page to try again.",
+    "empty": "Write a query in the editor to see its result here.",
+    "error": "Fix the error to see the result.",
+    "noTable": "This query returned no table: start it with `SELECT` to read data.",
+    "noRows": "No rows",
+    "expected": "Expected result",
+    "yours": "Your result",
+    "tableAfter": "The `{{table}}` table after your query",
+    "rows_one": "{{count}} row",
+    "rows_other": "{{count}} rows",
+    "changes_one": "{{count}} row changed",
+    "changes_other": "{{count}} rows changed",
+    "null": "NULL",
+    "rowMatches": "expected row",
+    "rowOff": "not expected"
+  },
+  "check": {
+    "title": "Query check",
+    "count_one": "{{passed}} of {{count}} check passed",
+    "count_other": "{{passed}} of {{count}} checks passed",
+    "error": "SQLite error:",
+    "empty": "The editor is empty.",
+    "noTable": "The query returned no table.",
+    "ok": "correct",
+    "pending": "fix the lines above first",
+    "items": {
+      "columns": "Columns",
+      "rows": "Rows",
+      "values": "Values",
+      "order": "Order"
+    },
+    "issues": {
+      "missingColumns": "missing {{columns}}",
+      "extraColumns": "not expected: {{columns}}",
+      "tooManyRows_one": "{{count}} row too many",
+      "tooManyRows_other": "{{count}} rows too many",
+      "tooFewRows_one": "{{count}} row missing",
+      "tooFewRows_other": "{{count}} rows missing",
+      "missingRows_one": "{{count}} expected row is missing or different",
+      "missingRows_other": "{{count}} expected rows are missing or different",
+      "wrongOrder": "the rows are not in the right order"
+    },
+    "solved": "Step complete!",
+    "finished": "You finished every step!",
+    "nextStep": "Next step"
+  },
+  "levels": {
+    "select-all": {
+      "title": "Your first query",
+      "intro": [
+        "A database keeps its data in tables, like spreadsheets: each row is a thing, each column a detail about it. The brick shop has two tables: `bricks` and `orders`. Look at them in the tabs on the right.",
+        "To read a table, write `SELECT`, the columns you want, `FROM` and the table name. The star `*` means every column. A query ends with a `;`."
+      ],
+      "goal": "The query reads the `orders` table. Change it to show every column of the `bricks` table.",
+      "hints": [
+        "Keep `SELECT * FROM` and change only the table name.",
+        "The table name is `bricks`, in lowercase, with an s.",
+        "`SELECT * FROM bricks;`"
+      ],
+      "recap": "`SELECT * FROM bricks;` reads every row and every column of a table."
+    },
+    "pick-columns": {
+      "title": "Only the columns you need",
+      "intro": [
+        "`*` is handy to discover a table, but you usually need a few columns only. List them after `SELECT`, separated by commas.",
+        "The columns appear in the result in the order you wrote them."
+      ],
+      "goal": "Show only the `name` and the `price` of every brick, in this order.",
+      "hints": [
+        "Replace the `*` with the column names.",
+        "Separate the columns with a comma: `name, price`.",
+        "`SELECT name, price FROM bricks;`"
+      ],
+      "recap": "`SELECT name, price` picks the columns, in the order you list them."
+    },
+    "rename-columns": {
+      "title": "Rename a column",
+      "intro": [
+        "The result columns take the names of the table columns. `AS` gives a column another name in the result, without changing the table.",
+        "A name with no spaces is the easiest: `in_stock` rather than `in stock`."
+      ],
+      "goal": "Show the name of each brick as `brick` and its stock as `in_stock`.",
+      "hints": [
+        "Write `AS` and the new name right after a column: `name AS brick`.",
+        "Rename both columns, with a comma between them.",
+        "`SELECT name AS brick, stock AS in_stock FROM bricks;`"
+      ],
+      "recap": "`AS` renames a column in the result only: the table keeps its column names."
+    },
+    "sort-rows": {
+      "title": "Sort the rows",
+      "intro": [
+        "Without instructions, the database returns the rows in any order. `ORDER BY` sorts them by a column, after the `FROM`.",
+        "The order is ascending (smallest first) by default. Add `DESC` after the column for descending (biggest first)."
+      ],
+      "goal": "Show the name and price of every brick, the most expensive first.",
+      "hints": [
+        "Add `ORDER BY price` at the end of the query, before the `;`.",
+        "The most expensive first means descending: add `DESC`.",
+        "`SELECT name, price FROM bricks ORDER BY price DESC;`"
+      ],
+      "recap": "`ORDER BY price DESC` sorts from the biggest value to the smallest; `ASC`, the default, does the opposite."
+    },
+    "where-number": {
+      "title": "Filter the rows",
+      "intro": [
+        "`WHERE` keeps only the rows that match a condition. It comes after the `FROM`: `WHERE stock = 0` keeps the rows whose stock is zero.",
+        "Numbers are written as they are, with no quotes. In SQL, a single `=` compares two values."
+      ],
+      "goal": "Show the name and stock of the bricks that are out of stock (a stock of 0).",
+      "hints": [
+        "Add a `WHERE` line after `FROM bricks`.",
+        "The condition compares the `stock` column to `0`.",
+        "`SELECT name, stock FROM bricks WHERE stock = 0;`"
+      ],
+      "recap": "`WHERE stock = 0` keeps only the rows where the condition is true."
+    },
+    "where-compare": {
+      "title": "More than, less than",
+      "intro": [
+        "Numbers can be compared with `<` (less than), `>` (more than), `<=` (less or equal), `>=` (more or equal) and `<>` (different).",
+        "Decimal numbers are written with a dot: `0.30`."
+      ],
+      "goal": "Show the name and price of the bricks that cost 0.30 or more.",
+      "hints": [
+        "`= 0.30` keeps only the bricks at exactly 0.30: you need another operator.",
+        "0.30 included means more or equal: `>=`.",
+        "`SELECT name, price FROM bricks WHERE price >= 0.30;`"
+      ],
+      "recap": "`>=` includes the value itself, `>` excludes it."
+    },
+    "where-text": {
+      "title": "Text needs quotes",
+      "intro": [
+        "Text values are written between single quotes: `'blue'`. Without quotes, the database reads `blue` as the name of a column and complains that it does not exist.",
+        "The text must match exactly: `'blue'` and `'Blue'` are different values."
+      ],
+      "goal": "Show the name and color of the `blue` bricks.",
+      "hints": [
+        "Add a condition on the `color` column.",
+        "Write the color between single quotes: `'blue'`.",
+        "`SELECT name, color FROM bricks WHERE color = 'blue';`"
+      ],
+      "recap": "Text goes between single quotes; names of columns and tables don't."
+    },
+    "where-like": {
+      "title": "Text that starts with…",
+      "intro": [
+        "`=` compares the whole text: no brick is called just `'Classic'`. `LIKE` compares the text to a pattern, where `%` stands for any characters, even none.",
+        "`'Classic%'` matches every text starting with Classic, `'%2'` every text ending with 2, `'%x%'` every text containing an x."
+      ],
+      "goal": "Show the name and studs of every Classic brick (their name starts with Classic).",
+      "hints": [
+        "Replace `=` with `LIKE`.",
+        "Add `%` right after the word, inside the quotes.",
+        "`SELECT name, studs FROM bricks WHERE name LIKE 'Classic%';`"
+      ],
+      "recap": "`LIKE 'Classic%'` matches a pattern: `%` stands for any characters."
+    },
+    "where-date": {
+      "title": "Dates",
+      "intro": [
+        "Dates are written as text, between quotes, in the year-month-day format: `'2024-11-01'`. In this order, the earlier date is also the smaller one, so `<` means before and `>` means after.",
+        "Always use two digits for the month and the day: `'2024-11-01'`, not `'2024-11-1'`."
+      ],
+      "goal": "Show the customer and date of the orders placed on November 1st, 2024 or later.",
+      "hints": [
+        "Add a condition on the `ordered_on` column.",
+        "On November 1st or later means `>=` with the date `'2024-11-01'`.",
+        "`SELECT customer, ordered_on FROM orders WHERE ordered_on >= '2024-11-01';`"
+      ],
+      "recap": "Dates are quoted and written year-month-day: they compare like numbers, earlier is smaller."
+    },
+    "where-and": {
+      "title": "Both conditions: AND",
+      "intro": [
+        "`AND` joins two conditions: a row is kept only when both are true. Each condition is complete on its own: `color = 'white' AND stock > 10`.",
+        "The more conditions joined with `AND`, the fewer rows in the result."
+      ],
+      "goal": "Show the `white` bricks that have more than 10 bricks in stock.",
+      "hints": [
+        "Keep the condition on the color and add a second one with `AND`.",
+        "The second condition is `stock > 10`.",
+        "`SELECT name, color, stock FROM bricks WHERE color = 'white' AND stock > 10;`"
+      ],
+      "recap": "With `AND`, a row must match every condition."
+    },
+    "where-or": {
+      "title": "One or the other: OR",
+      "intro": [
+        "`OR` joins two conditions too, but a row is kept when at least one of them is true.",
+        "Repeat the column in each condition: `color = 'red' OR color = 'green'`. `color = 'red' OR 'green'` does not work."
+      ],
+      "goal": "Show the `red` bricks and the `green` bricks.",
+      "hints": [
+        "Add a second condition with `OR`.",
+        "The second condition is complete too: `color = 'green'`.",
+        "`SELECT name, color FROM bricks WHERE color = 'red' OR color = 'green';`"
+      ],
+      "recap": "With `OR`, a row must match at least one condition."
+    },
+    "and-or": {
+      "title": "AND and OR together",
+      "intro": [
+        "When a condition mixes them, `AND` goes first, like × before + in maths. `a OR b AND c` means `a OR (b AND c)`.",
+        "Parentheses choose the order: `(a OR b) AND c` checks the `OR` first."
+      ],
+      "goal": "The query returns 4 bricks, but it should only return the red or yellow bricks that cost less than 0.25. Fix it.",
+      "hints": [
+        "Right now, every red brick is kept, whatever its price: the price only applies to the yellow ones.",
+        "Put parentheses around the two colors.",
+        "`WHERE (color = 'red' OR color = 'yellow') AND price < 0.25`"
+      ],
+      "recap": "`AND` goes before `OR`: add parentheses whenever you mix them, so the query does what you mean."
+    },
+    "where-in": {
+      "title": "One of a list: IN",
+      "intro": [
+        "Several `OR` on the same column get long. `IN` checks that a value is one of a list: `customer IN ('Ana', 'Ben')` means `customer = 'Ana' OR customer = 'Ben'`.",
+        "The list goes between parentheses, its values separated by commas."
+      ],
+      "goal": "Show the customer and quantity of the orders from Ana, Chloe and Farid.",
+      "hints": [
+        "Add `WHERE customer IN (...)`.",
+        "Each name is text: between quotes, separated by commas.",
+        "`WHERE customer IN ('Ana', 'Chloe', 'Farid')`"
+      ],
+      "recap": "`IN (...)` is a short way to write several `OR` on the same column."
+    },
+    "date-between": {
+      "title": "A period: BETWEEN",
+      "intro": [
+        "`BETWEEN` keeps the values from a start to an end, both included: `quantity BETWEEN 10 AND 30` means `quantity >= 10 AND quantity <= 30`.",
+        "It works on numbers, and on dates written year-month-day."
+      ],
+      "goal": "Show the name and date of the bricks added from March 1st to June 30th, 2024.",
+      "hints": [
+        "Add a condition on `added_on` with `BETWEEN ... AND ...`.",
+        "Both dates are quoted text: `'2024-03-01'` and `'2024-06-30'`.",
+        "`WHERE added_on BETWEEN '2024-03-01' AND '2024-06-30'`"
+      ],
+      "recap": "`BETWEEN` includes both ends of the range."
+    },
+    "date-parts": {
+      "title": "Part of a date",
+      "intro": [
+        "`strftime` extracts a part of a date: `strftime('%Y', added_on)` gives the year, `'%m'` the month, `'%d'` the day.",
+        "Careful with the types: the result is text, so compare it to text, `'2023'`, not to the number `2023`."
+      ],
+      "goal": "Show the name and date of the bricks added in 2023.",
+      "hints": [
+        "Add a condition comparing `strftime('%Y', added_on)` to the year.",
+        "The year is text: write it between quotes.",
+        "`WHERE strftime('%Y', added_on) = '2023'`"
+      ],
+      "recap": "`strftime` returns text: `'2023'` matches, the number `2023` does not."
+    },
+    "insert-row": {
+      "title": "Add a row: INSERT",
+      "intro": [
+        "`INSERT INTO` adds a row to a table: the list of columns, then `VALUES` with one value per column, in the same order.",
+        "Each value must have the right type: numbers as they are, text and dates between quotes."
+      ],
+      "goal": "Add the green Classic 1x2 brick (id 11) to the `bricks` table: fix the values so the query runs.",
+      "hints": [
+        "The database stops at `Classic 1x2`: text needs quotes.",
+        "`'green'` is text too, and so is the date: without quotes, `2024-11-09` is a subtraction.",
+        "`VALUES (11, 'Classic 1x2', 'green', 2, 0.10, 60, '2024-11-09');`"
+      ],
+      "recap": "Numbers as they are, text and dates in quotes: each value with its type, in the order of the columns."
+    },
+    "insert-defaults": {
+      "title": "Let the database fill in",
+      "intro": [
+        "An `id` declared as `INTEGER PRIMARY KEY` is picked by the database when you leave it out: the next free number. Two rows can't have the same id.",
+        "A column with a `DEFAULT` gets its default value when you leave it out: an order's status is `'pending'`."
+      ],
+      "goal": "The order from Gina fails: id 1 is taken. Insert it again, letting the database pick the `id` and the `status`.",
+      "hints": [
+        "Remove `id` and `status` from the list of columns.",
+        "Remove their values too: the values must match the columns, one for one.",
+        "`INSERT INTO orders (customer, brick_id, quantity, ordered_on) VALUES ('Gina', 3, 20, '2024-11-12');`"
+      ],
+      "recap": "Leave out a column and the database fills it: the next id, the default value, or `NULL`."
+    },
+    "update-one": {
+      "title": "Change a row: UPDATE",
+      "intro": [
+        "`UPDATE` changes rows that already exist: `UPDATE` the table, `SET` the column to its new value, and `WHERE` to choose the rows.",
+        "Without `WHERE`, every row of the table changes. Write the `WHERE` first, to be safe."
+      ],
+      "goal": "The yellow Plate 1x6 (id 3) is back: set its stock to 200, and change no other brick.",
+      "hints": [
+        "Replace the `SELECT` with `UPDATE bricks SET ...`.",
+        "Keep `WHERE id = 3` to change this brick only.",
+        "`UPDATE bricks SET stock = 200 WHERE id = 3;`"
+      ],
+      "recap": "`UPDATE ... SET ... WHERE` changes only the rows matched by the `WHERE`."
+    },
+    "update-math": {
+      "title": "Compute the new value",
+      "intro": [
+        "The new value can be computed from the current one: `quantity * 2` doubles each row's own quantity. You can use `+`, `-`, `*` and `/`.",
+        "Each row is computed from its own value, so one query changes many rows differently."
+      ],
+      "goal": "Raise the price of every red brick by 0.05, from its current price.",
+      "hints": [
+        "`price = 0.50` gives every red brick the same price: compute it from `price` instead.",
+        "Add 0.05 to the current price: `price + 0.05`.",
+        "`UPDATE bricks SET price = price + 0.05 WHERE color = 'red';`"
+      ],
+      "recap": "`SET price = price + 0.05` computes each row's new value from its own current value."
+    },
+    "update-where": {
+      "title": "Ship the late orders",
+      "intro": [
+        "This query has no `WHERE`: it ships every order, even the cancelled ones. A missing `WHERE` is the most common mistake with `UPDATE`.",
+        "Use what you learned: conditions joined with `AND`, text and dates between quotes."
+      ],
+      "goal": "Ship (status `'shipped'`) only the pending orders placed before November 1st, 2024.",
+      "hints": [
+        "Add a `WHERE` with two conditions joined by `AND`.",
+        "One condition on `status`, one on `ordered_on` with `<`.",
+        "`UPDATE orders SET status = 'shipped' WHERE status = 'pending' AND ordered_on < '2024-11-01';`"
+      ],
+      "recap": "You can read, filter, add and change data: `SELECT`, `WHERE`, `INSERT` and `UPDATE` are the base of every SQL database."
+    }
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "app": {
+    "name": "Stein auf Stein SQL"
+  },
+  "language": {
+    "label": "Sprache",
+    "names": {
+      "en": "English",
+      "fr": "Français",
+      "es": "Español",
+      "it": "Italiano",
+      "de": "Deutsch"
+    }
+  },
+  "codeComments": {
+    "everyColumn": "* bedeutet alle Spalten",
+    "biggestFirst": "die größte zuerst",
+    "moreThan30": "mehr als 30, ohne 30",
+    "startsWithB": "beginnt mit B",
+    "before2024": "vor 2024 hinzugefügt",
+    "bothIncluded": "10 und 30 eingeschlossen",
+    "monthAsText": "'09', '10', '11'... als Text",
+    "fixTheTypes": "Text und Datumsangaben brauchen Anführungszeichen, Zahlen nicht",
+    "otherColumnsEmpty": "die id wählt die Datenbank, die anderen Spalten bleiben leer",
+    "doubleIt": "der neue Wert wird aus dem alten berechnet"
+  },
+  "steps": {
+    "label": "Schritte",
+    "step": "Schritt {{number}}: {{title}}",
+    "stepDone": "Schritt {{number}}: {{title}}, erledigt",
+    "tooltip": "{{number}}. {{title}}"
+  },
+  "lesson": {
+    "meta": "Schritt {{step}} von {{total}}",
+    "goal": "Dein Ziel: ",
+    "firstHint": "Brauchst du einen Tipp?",
+    "nextHint": "Noch ein Tipp",
+    "hintCount": "{{current}} von {{total}}",
+    "showSolution": "Zeig mir die Lösung",
+    "confirmLabel": "Deine Abfrage durch die Lösung ersetzen?",
+    "confirmText": "Deine Abfrage wird durch die Lösung ersetzt.",
+    "replaceCode": "Meine Abfrage ersetzen",
+    "keepTrying": "Weiter probieren"
+  },
+  "editor": {
+    "label": "SQL-Editor",
+    "file": "query.sql",
+    "code": "SQL-Abfrage",
+    "startOver": "Neu anfangen",
+    "note": "Deine Abfrage läuft schon beim Tippen, auf einer frischen Kopie der Datenbank des Steineladens."
+  },
+  "results": {
+    "label": "Datenbank",
+    "address": "brickshop.db · Schritt {{step}}",
+    "showExpected": "Erwartetes zeigen",
+    "tabs": "Ergebnis und Tabellen",
+    "result": "Ergebnis",
+    "loading": "Datenbank wird geöffnet…",
+    "loadError": "Die Datenbank konnte nicht geöffnet werden. Lade die Seite neu, um es noch einmal zu versuchen.",
+    "empty": "Schreib eine Abfrage in den Editor, um hier ihr Ergebnis zu sehen.",
+    "error": "Behebe den Fehler, um das Ergebnis zu sehen.",
+    "noTable": "Diese Abfrage hat keine Tabelle zurückgegeben: Beginne sie mit `SELECT`, um Daten zu lesen.",
+    "noRows": "Keine Zeilen",
+    "expected": "Erwartetes Ergebnis",
+    "yours": "Dein Ergebnis",
+    "tableAfter": "Die Tabelle `{{table}}` nach deiner Abfrage",
+    "rows_one": "{{count}} Zeile",
+    "rows_other": "{{count}} Zeilen",
+    "changes_one": "{{count}} Zeile geändert",
+    "changes_other": "{{count}} Zeilen geändert",
+    "null": "NULL",
+    "rowMatches": "erwartete Zeile",
+    "rowOff": "nicht erwartet"
+  },
+  "check": {
+    "title": "Abfrage-Check",
+    "count_one": "{{passed}} von {{count}} Prüfung bestanden",
+    "count_other": "{{passed}} von {{count}} Prüfungen bestanden",
+    "error": "SQLite-Fehler:",
+    "empty": "Der Editor ist leer.",
+    "noTable": "Die Abfrage hat keine Tabelle zurückgegeben.",
+    "ok": "richtig",
+    "pending": "korrigiere zuerst die Zeilen darüber",
+    "items": {
+      "columns": "Spalten",
+      "rows": "Zeilen",
+      "values": "Werte",
+      "order": "Reihenfolge"
+    },
+    "issues": {
+      "missingColumns": "es fehlt {{columns}}",
+      "extraColumns": "zu viel: {{columns}}",
+      "tooManyRows_one": "{{count}} Zeile zu viel",
+      "tooManyRows_other": "{{count}} Zeilen zu viel",
+      "tooFewRows_one": "{{count}} Zeile fehlt",
+      "tooFewRows_other": "{{count}} Zeilen fehlen",
+      "missingRows_one": "{{count}} erwartete Zeile fehlt oder ist anders",
+      "missingRows_other": "{{count}} erwartete Zeilen fehlen oder sind anders",
+      "wrongOrder": "die Zeilen sind nicht in der richtigen Reihenfolge"
+    },
+    "solved": "Schritt geschafft!",
+    "finished": "Du hast alle Schritte geschafft!",
+    "nextStep": "Nächster Schritt"
+  },
+  "levels": {
+    "select-all": {
+      "title": "Deine erste Abfrage",
+      "intro": [
+        "Eine Datenbank speichert ihre Daten in Tabellen, wie Tabellenblätter: Jede Zeile ist ein Ding, jede Spalte ein Detail dazu. Der Steineladen hat zwei Tabellen: `bricks` und `orders`. Sieh sie dir in den Reitern rechts an.",
+        "Um eine Tabelle zu lesen, schreib `SELECT`, die gewünschten Spalten, `FROM` und den Namen der Tabelle. Der Stern `*` bedeutet alle Spalten. Eine Abfrage endet mit `;`."
+      ],
+      "goal": "Die Abfrage liest die Tabelle `orders`. Ändere sie so, dass sie alle Spalten der Tabelle `bricks` zeigt.",
+      "hints": [
+        "Behalte `SELECT * FROM` und ändere nur den Tabellennamen.",
+        "Der Tabellenname ist `bricks`, kleingeschrieben, mit s.",
+        "`SELECT * FROM bricks;`"
+      ],
+      "recap": "`SELECT * FROM bricks;` liest alle Zeilen und alle Spalten einer Tabelle."
+    },
+    "pick-columns": {
+      "title": "Nur die nötigen Spalten",
+      "intro": [
+        "`*` ist praktisch, um eine Tabelle kennenzulernen, aber meist brauchst du nur ein paar Spalten. Schreib sie nach `SELECT`, durch Kommas getrennt.",
+        "Die Spalten erscheinen im Ergebnis in der Reihenfolge, in der du sie schreibst."
+      ],
+      "goal": "Zeig nur `name` und `price` jedes Steins, in dieser Reihenfolge.",
+      "hints": [
+        "Ersetze den `*` durch die Spaltennamen.",
+        "Trenne die Spalten mit einem Komma: `name, price`.",
+        "`SELECT name, price FROM bricks;`"
+      ],
+      "recap": "`SELECT name, price` wählt die Spalten, in der Reihenfolge, in der du sie aufzählst."
+    },
+    "rename-columns": {
+      "title": "Eine Spalte umbenennen",
+      "intro": [
+        "Die Spalten des Ergebnisses tragen die Namen der Tabellenspalten. `AS` gibt einer Spalte im Ergebnis einen anderen Namen, ohne die Tabelle zu ändern.",
+        "Ein Name ohne Leerzeichen ist am einfachsten: `in_stock` statt `in stock`."
+      ],
+      "goal": "Zeig den Namen jedes Steins als `brick` und seinen Bestand als `in_stock`.",
+      "hints": [
+        "Schreib `AS` und den neuen Namen direkt hinter eine Spalte: `name AS brick`.",
+        "Benenne beide Spalten um, mit einem Komma dazwischen.",
+        "`SELECT name AS brick, stock AS in_stock FROM bricks;`"
+      ],
+      "recap": "`AS` benennt eine Spalte nur im Ergebnis um: Die Tabelle behält ihre Spaltennamen."
+    },
+    "sort-rows": {
+      "title": "Zeilen sortieren",
+      "intro": [
+        "Ohne Anweisung liefert die Datenbank die Zeilen in beliebiger Reihenfolge. `ORDER BY` sortiert sie nach einer Spalte, nach dem `FROM`.",
+        "Standardmäßig wird aufsteigend sortiert (das Kleinste zuerst). Schreib `DESC` hinter die Spalte für absteigend (das Größte zuerst)."
+      ],
+      "goal": "Zeig Name und Preis jedes Steins, den teuersten zuerst.",
+      "hints": [
+        "Füge `ORDER BY price` am Ende der Abfrage ein, vor dem `;`.",
+        "Der teuerste zuerst heißt absteigend: Füge `DESC` hinzu.",
+        "`SELECT name, price FROM bricks ORDER BY price DESC;`"
+      ],
+      "recap": "`ORDER BY price DESC` sortiert vom größten zum kleinsten Wert; `ASC`, der Standard, macht es umgekehrt."
+    },
+    "where-number": {
+      "title": "Zeilen filtern",
+      "intro": [
+        "`WHERE` behält nur die Zeilen, die eine Bedingung erfüllen. Es steht nach dem `FROM`: `WHERE stock = 0` behält die Zeilen, deren Bestand null ist.",
+        "Zahlen schreibst du einfach so, ohne Anführungszeichen. In SQL vergleicht ein einzelnes `=` zwei Werte."
+      ],
+      "goal": "Zeig Name und Bestand der ausverkauften Steine (Bestand 0).",
+      "hints": [
+        "Füge eine Zeile `WHERE` nach `FROM bricks` ein.",
+        "Die Bedingung vergleicht die Spalte `stock` mit `0`.",
+        "`SELECT name, stock FROM bricks WHERE stock = 0;`"
+      ],
+      "recap": "`WHERE stock = 0` behält nur die Zeilen, für die die Bedingung wahr ist."
+    },
+    "where-compare": {
+      "title": "Mehr als, weniger als",
+      "intro": [
+        "Zahlen vergleichst du mit `<` (kleiner als), `>` (größer als), `<=` (kleiner oder gleich), `>=` (größer oder gleich) und `<>` (ungleich).",
+        "Dezimalzahlen schreibst du mit Punkt: `0.30`."
+      ],
+      "goal": "Zeig Name und Preis der Steine, die 0.30 oder mehr kosten.",
+      "hints": [
+        "`= 0.30` behält nur die Steine zu genau 0.30: Du brauchst einen anderen Operator.",
+        "0.30 eingeschlossen heißt größer oder gleich: `>=`.",
+        "`SELECT name, price FROM bricks WHERE price >= 0.30;`"
+      ],
+      "recap": "`>=` schließt den Wert selbst ein, `>` schließt ihn aus."
+    },
+    "where-text": {
+      "title": "Text braucht Anführungszeichen",
+      "intro": [
+        "Textwerte stehen in einfachen Anführungszeichen: `'blue'`. Ohne sie liest die Datenbank `blue` als Spaltennamen und beschwert sich, dass es die Spalte nicht gibt.",
+        "Der Text muss genau passen: `'blue'` und `'Blue'` sind verschiedene Werte."
+      ],
+      "goal": "Zeig Name und Farbe der blauen Steine (`blue`).",
+      "hints": [
+        "Füge eine Bedingung auf die Spalte `color` hinzu.",
+        "Schreib die Farbe in einfache Anführungszeichen: `'blue'`.",
+        "`SELECT name, color FROM bricks WHERE color = 'blue';`"
+      ],
+      "recap": "Text steht in einfachen Anführungszeichen; Spalten- und Tabellennamen nicht."
+    },
+    "where-like": {
+      "title": "Text, der beginnt mit…",
+      "intro": [
+        "`=` vergleicht den ganzen Text: Kein Stein heißt nur `'Classic'`. `LIKE` vergleicht den Text mit einem Muster, in dem `%` für beliebige Zeichen steht, auch für keine.",
+        "`'Classic%'` passt auf jeden Text, der mit Classic beginnt, `'%2'` auf jeden, der auf 2 endet, `'%x%'` auf jeden, der ein x enthält."
+      ],
+      "goal": "Zeig Name und Noppen jedes Classic-Steins (sein Name beginnt mit Classic).",
+      "hints": [
+        "Ersetze `=` durch `LIKE`.",
+        "Füge `%` direkt nach dem Wort ein, innerhalb der Anführungszeichen.",
+        "`SELECT name, studs FROM bricks WHERE name LIKE 'Classic%';`"
+      ],
+      "recap": "`LIKE 'Classic%'` vergleicht mit einem Muster: `%` steht für beliebige Zeichen."
+    },
+    "where-date": {
+      "title": "Datumsangaben",
+      "intro": [
+        "Datumsangaben schreibst du als Text, in Anführungszeichen, im Format Jahr-Monat-Tag: `'2024-11-01'`. In dieser Reihenfolge ist das frühere Datum auch das kleinere: `<` heißt vorher und `>` nachher.",
+        "Schreib Monat und Tag immer zweistellig: `'2024-11-01'`, nicht `'2024-11-1'`."
+      ],
+      "goal": "Zeig Kunde und Datum der Bestellungen vom 1. November 2024 oder später.",
+      "hints": [
+        "Füge eine Bedingung auf die Spalte `ordered_on` hinzu.",
+        "Am 1. November oder später heißt `>=` mit dem Datum `'2024-11-01'`.",
+        "`SELECT customer, ordered_on FROM orders WHERE ordered_on >= '2024-11-01';`"
+      ],
+      "recap": "Datumsangaben stehen in Anführungszeichen, im Format Jahr-Monat-Tag: Sie vergleichen sich wie Zahlen, früher ist kleiner."
+    },
+    "where-and": {
+      "title": "Beide Bedingungen: AND",
+      "intro": [
+        "`AND` verbindet zwei Bedingungen: Eine Zeile bleibt nur, wenn beide wahr sind. Jede Bedingung ist für sich vollständig: `color = 'white' AND stock > 10`.",
+        "Je mehr Bedingungen mit `AND` verbunden sind, desto weniger Zeilen im Ergebnis."
+      ],
+      "goal": "Zeig die weißen Steine (`white`), von denen mehr als 10 auf Lager sind.",
+      "hints": [
+        "Behalte die Bedingung auf die Farbe und füge mit `AND` eine zweite hinzu.",
+        "Die zweite Bedingung ist `stock > 10`.",
+        "`SELECT name, color, stock FROM bricks WHERE color = 'white' AND stock > 10;`"
+      ],
+      "recap": "Mit `AND` muss eine Zeile alle Bedingungen erfüllen."
+    },
+    "where-or": {
+      "title": "Das eine oder das andere: OR",
+      "intro": [
+        "`OR` verbindet auch zwei Bedingungen, aber eine Zeile bleibt, sobald mindestens eine davon wahr ist.",
+        "Wiederhole die Spalte in jeder Bedingung: `color = 'red' OR color = 'green'`. `color = 'red' OR 'green'` funktioniert nicht."
+      ],
+      "goal": "Zeig die roten Steine (`red`) und die grünen Steine (`green`).",
+      "hints": [
+        "Füge mit `OR` eine zweite Bedingung hinzu.",
+        "Auch die zweite Bedingung ist vollständig: `color = 'green'`.",
+        "`SELECT name, color FROM bricks WHERE color = 'red' OR color = 'green';`"
+      ],
+      "recap": "Mit `OR` muss eine Zeile mindestens eine Bedingung erfüllen."
+    },
+    "and-or": {
+      "title": "AND und OR zusammen",
+      "intro": [
+        "Wenn eine Bedingung beide mischt, kommt `AND` zuerst, wie Punkt vor Strich in Mathe. `a OR b AND c` bedeutet `a OR (b AND c)`.",
+        "Klammern legen die Reihenfolge fest: `(a OR b) AND c` prüft zuerst das `OR`."
+      ],
+      "goal": "Die Abfrage liefert 4 Steine, sollte aber nur die roten oder gelben Steine liefern, die weniger als 0.25 kosten. Korrigiere sie.",
+      "hints": [
+        "Gerade bleibt jeder rote Stein, egal wie teuer: Der Preis gilt nur für die gelben.",
+        "Setz Klammern um die beiden Farben.",
+        "`WHERE (color = 'red' OR color = 'yellow') AND price < 0.25`"
+      ],
+      "recap": "`AND` kommt vor `OR`: Setz Klammern, sobald du beide mischst, damit die Abfrage tut, was du meinst."
+    },
+    "where-in": {
+      "title": "Einer aus einer Liste: IN",
+      "intro": [
+        "Mehrere `OR` auf dieselbe Spalte werden lang. `IN` prüft, ob ein Wert in einer Liste steht: `customer IN ('Ana', 'Ben')` bedeutet `customer = 'Ana' OR customer = 'Ben'`.",
+        "Die Liste steht in Klammern, ihre Werte durch Kommas getrennt."
+      ],
+      "goal": "Zeig Kunde und Menge der Bestellungen von Ana, Chloe und Farid.",
+      "hints": [
+        "Füge `WHERE customer IN (...)` hinzu.",
+        "Jeder Name ist Text: in Anführungszeichen, durch Kommas getrennt.",
+        "`WHERE customer IN ('Ana', 'Chloe', 'Farid')`"
+      ],
+      "recap": "`IN (...)` ist eine kurze Schreibweise für mehrere `OR` auf dieselbe Spalte."
+    },
+    "date-between": {
+      "title": "Ein Zeitraum: BETWEEN",
+      "intro": [
+        "`BETWEEN` behält die Werte von einem Anfang bis zu einem Ende, beide eingeschlossen: `quantity BETWEEN 10 AND 30` bedeutet `quantity >= 10 AND quantity <= 30`.",
+        "Das funktioniert mit Zahlen und mit Datumsangaben im Format Jahr-Monat-Tag."
+      ],
+      "goal": "Zeig Name und Datum der Steine, die vom 1. März bis 30. Juni 2024 hinzugefügt wurden.",
+      "hints": [
+        "Füge eine Bedingung auf `added_on` mit `BETWEEN ... AND ...` hinzu.",
+        "Beide Datumsangaben sind Text in Anführungszeichen: `'2024-03-01'` und `'2024-06-30'`.",
+        "`WHERE added_on BETWEEN '2024-03-01' AND '2024-06-30'`"
+      ],
+      "recap": "`BETWEEN` schließt beide Enden des Bereichs ein."
+    },
+    "date-parts": {
+      "title": "Ein Teil des Datums",
+      "intro": [
+        "`strftime` holt einen Teil aus einem Datum: `strftime('%Y', added_on)` liefert das Jahr, `'%m'` den Monat, `'%d'` den Tag.",
+        "Achte auf die Typen: Das Ergebnis ist Text, vergleiche es also mit Text, `'2023'`, nicht mit der Zahl `2023`."
+      ],
+      "goal": "Zeig Name und Datum der Steine, die 2023 hinzugefügt wurden.",
+      "hints": [
+        "Füge eine Bedingung hinzu, die `strftime('%Y', added_on)` mit dem Jahr vergleicht.",
+        "Das Jahr ist Text: Schreib es in Anführungszeichen.",
+        "`WHERE strftime('%Y', added_on) = '2023'`"
+      ],
+      "recap": "`strftime` liefert Text: `'2023'` passt, die Zahl `2023` nicht."
+    },
+    "insert-row": {
+      "title": "Eine Zeile hinzufügen: INSERT",
+      "intro": [
+        "`INSERT INTO` fügt einer Tabelle eine Zeile hinzu: die Liste der Spalten, dann `VALUES` mit einem Wert pro Spalte, in derselben Reihenfolge.",
+        "Jeder Wert braucht den richtigen Typ: Zahlen einfach so, Text und Datumsangaben in Anführungszeichen."
+      ],
+      "goal": "Füge den grünen Stein Classic 1x2 (id 11) zur Tabelle `bricks` hinzu: Korrigiere die Werte, damit die Abfrage läuft.",
+      "hints": [
+        "Die Datenbank bleibt bei `Classic 1x2` hängen: Text braucht Anführungszeichen.",
+        "`'green'` ist auch Text, und das Datum ebenso: Ohne Anführungszeichen ist `2024-11-09` eine Subtraktion.",
+        "`VALUES (11, 'Classic 1x2', 'green', 2, 0.10, 60, '2024-11-09');`"
+      ],
+      "recap": "Zahlen einfach so, Text und Datumsangaben in Anführungszeichen: jeder Wert mit seinem Typ, in der Reihenfolge der Spalten."
+    },
+    "insert-defaults": {
+      "title": "Die Datenbank ergänzen lassen",
+      "intro": [
+        "Eine `id`, die als `INTEGER PRIMARY KEY` deklariert ist, wählt die Datenbank, wenn du sie weglässt: die nächste freie Nummer. Zwei Zeilen können nicht dieselbe id haben.",
+        "Eine Spalte mit `DEFAULT` bekommt ihren Standardwert, wenn du sie weglässt: Der Status einer Bestellung ist `'pending'`."
+      ],
+      "goal": "Ginas Bestellung schlägt fehl: Die id 1 ist schon vergeben. Füge sie erneut ein und lass die Datenbank `id` und `status` wählen.",
+      "hints": [
+        "Nimm `id` und `status` aus der Spaltenliste.",
+        "Nimm auch ihre Werte heraus: Die Werte müssen zu den Spalten passen, einer pro Spalte.",
+        "`INSERT INTO orders (customer, brick_id, quantity, ordered_on) VALUES ('Gina', 3, 20, '2024-11-12');`"
+      ],
+      "recap": "Lass eine Spalte weg und die Datenbank füllt sie: die nächste id, den Standardwert oder `NULL`."
+    },
+    "update-one": {
+      "title": "Eine Zeile ändern: UPDATE",
+      "intro": [
+        "`UPDATE` ändert Zeilen, die es schon gibt: `UPDATE` die Tabelle, `SET` die Spalte auf ihren neuen Wert, und `WHERE`, um die Zeilen auszuwählen.",
+        "Ohne `WHERE` ändern sich alle Zeilen der Tabelle. Schreib sicherheitshalber zuerst das `WHERE`."
+      ],
+      "goal": "Die gelbe Plate 1x6 (id 3) ist wieder da: Setz ihren Bestand auf 200 und ändere keinen anderen Stein.",
+      "hints": [
+        "Ersetze das `SELECT` durch `UPDATE bricks SET ...`.",
+        "Behalte `WHERE id = 3`, um nur diesen Stein zu ändern.",
+        "`UPDATE bricks SET stock = 200 WHERE id = 3;`"
+      ],
+      "recap": "`UPDATE ... SET ... WHERE` ändert nur die Zeilen, die das `WHERE` auswählt."
+    },
+    "update-math": {
+      "title": "Den neuen Wert berechnen",
+      "intro": [
+        "Der neue Wert kann aus dem aktuellen berechnet werden: `quantity * 2` verdoppelt die Menge jeder einzelnen Zeile. Du kannst `+`, `-`, `*` und `/` benutzen.",
+        "Jede Zeile wird aus ihrem eigenen Wert berechnet, so ändert eine einzige Abfrage viele Zeilen unterschiedlich."
+      ],
+      "goal": "Erhöhe den Preis jedes roten Steins um 0.05, ausgehend von seinem aktuellen Preis.",
+      "hints": [
+        "`price = 0.50` gibt allen roten Steinen denselben Preis: Berechne ihn stattdessen aus `price`.",
+        "Addiere 0.05 zum aktuellen Preis: `price + 0.05`.",
+        "`UPDATE bricks SET price = price + 0.05 WHERE color = 'red';`"
+      ],
+      "recap": "`SET price = price + 0.05` berechnet den neuen Wert jeder Zeile aus ihrem aktuellen Wert."
+    },
+    "update-where": {
+      "title": "Verspätete Bestellungen versenden",
+      "intro": [
+        "Diese Abfrage hat kein `WHERE`: Sie versendet alle Bestellungen, sogar die stornierten. Ein vergessenes `WHERE` ist der häufigste Fehler bei `UPDATE`.",
+        "Nutze, was du gelernt hast: Bedingungen mit `AND` verbinden, Text und Datumsangaben in Anführungszeichen."
+      ],
+      "goal": "Versende (Status `'shipped'`) nur die offenen Bestellungen, die vor dem 1. November 2024 aufgegeben wurden.",
+      "hints": [
+        "Füge ein `WHERE` mit zwei Bedingungen hinzu, verbunden durch `AND`.",
+        "Eine Bedingung auf `status`, eine auf `ordered_on` mit `<`.",
+        "`UPDATE orders SET status = 'shipped' WHERE status = 'pending' AND ordered_on < '2024-11-01';`"
+      ],
+      "recap": "Du kannst Daten lesen, filtern, hinzufügen und ändern: `SELECT`, `WHERE`, `INSERT` und `UPDATE` sind die Basis jeder SQL-Datenbank."
+    }
+  }
+}

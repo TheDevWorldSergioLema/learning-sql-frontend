@@ -1,0 +1,387 @@
+{
+  "app": {
+    "name": "Ladrillo a ladrillo SQL"
+  },
+  "language": {
+    "label": "Idioma",
+    "names": {
+      "en": "English",
+      "fr": "Français",
+      "es": "Español",
+      "it": "Italiano",
+      "de": "Deutsch"
+    }
+  },
+  "codeComments": {
+    "everyColumn": "* significa todas las columnas",
+    "biggestFirst": "la mayor primero",
+    "moreThan30": "más de 30, sin incluir 30",
+    "startsWithB": "empieza por B",
+    "before2024": "añadidas antes de 2024",
+    "bothIncluded": "10 y 30 incluidos",
+    "monthAsText": "'09', '10', '11'... como texto",
+    "fixTheTypes": "El texto y las fechas necesitan comillas, los números no",
+    "otherColumnsEmpty": "la base elige el id, las demás columnas quedan vacías",
+    "doubleIt": "el nuevo valor se calcula a partir del anterior"
+  },
+  "steps": {
+    "label": "Pasos",
+    "step": "Paso {{number}}: {{title}}",
+    "stepDone": "Paso {{number}}: {{title}}, completado",
+    "tooltip": "{{number}}. {{title}}"
+  },
+  "lesson": {
+    "meta": "Paso {{step}} de {{total}}",
+    "goal": "Tu objetivo: ",
+    "firstHint": "¿Necesitas una pista?",
+    "nextHint": "Otra pista",
+    "hintCount": "{{current}} de {{total}}",
+    "showSolution": "Muéstrame la solución",
+    "confirmLabel": "¿Sustituir tu consulta por la solución?",
+    "confirmText": "Tu consulta se sustituirá por la solución.",
+    "replaceCode": "Sustituir mi consulta",
+    "keepTrying": "Sigo intentándolo"
+  },
+  "editor": {
+    "label": "Editor SQL",
+    "file": "query.sql",
+    "code": "Consulta SQL",
+    "startOver": "Empezar de nuevo",
+    "note": "Tu consulta se ejecuta mientras escribes, sobre una copia nueva de la base de datos de la tienda de ladrillos."
+  },
+  "results": {
+    "label": "Base de datos",
+    "address": "brickshop.db · paso {{step}}",
+    "showExpected": "Ver lo esperado",
+    "tabs": "Resultado y tablas",
+    "result": "Resultado",
+    "loading": "Abriendo la base de datos…",
+    "loadError": "No se pudo abrir la base de datos. Recarga la página para volver a intentarlo.",
+    "empty": "Escribe una consulta en el editor para ver aquí su resultado.",
+    "error": "Corrige el error para ver el resultado.",
+    "noTable": "Esta consulta no ha devuelto ninguna tabla: empiézala con `SELECT` para leer datos.",
+    "noRows": "Ninguna fila",
+    "expected": "Resultado esperado",
+    "yours": "Tu resultado",
+    "tableAfter": "La tabla `{{table}}` después de tu consulta",
+    "rows_one": "{{count}} fila",
+    "rows_other": "{{count}} filas",
+    "changes_one": "{{count}} fila modificada",
+    "changes_other": "{{count}} filas modificadas",
+    "null": "NULL",
+    "rowMatches": "fila esperada",
+    "rowOff": "fila no esperada"
+  },
+  "check": {
+    "title": "Comprobación",
+    "count_one": "{{passed}} de {{count}} comprobación superada",
+    "count_other": "{{passed}} de {{count}} comprobaciones superadas",
+    "error": "Error de SQLite:",
+    "empty": "El editor está vacío.",
+    "noTable": "La consulta no ha devuelto ninguna tabla.",
+    "ok": "correcto",
+    "pending": "corrige primero las líneas de arriba",
+    "items": {
+      "columns": "Columnas",
+      "rows": "Filas",
+      "values": "Valores",
+      "order": "Orden"
+    },
+    "issues": {
+      "missingColumns": "falta {{columns}}",
+      "extraColumns": "sobra: {{columns}}",
+      "tooManyRows_one": "sobra {{count}} fila",
+      "tooManyRows_other": "sobran {{count}} filas",
+      "tooFewRows_one": "falta {{count}} fila",
+      "tooFewRows_other": "faltan {{count}} filas",
+      "missingRows_one": "{{count}} fila esperada falta o es distinta",
+      "missingRows_other": "{{count}} filas esperadas faltan o son distintas",
+      "wrongOrder": "las filas no están en el orden correcto"
+    },
+    "solved": "¡Paso completado!",
+    "finished": "¡Has terminado todos los pasos!",
+    "nextStep": "Siguiente paso"
+  },
+  "levels": {
+    "select-all": {
+      "title": "Tu primera consulta",
+      "intro": [
+        "Una base de datos guarda sus datos en tablas, como hojas de cálculo: cada fila es una cosa, cada columna un detalle sobre ella. La tienda de ladrillos tiene dos tablas: `bricks` y `orders`. Míralas en las pestañas de la derecha.",
+        "Para leer una tabla, escribe `SELECT`, las columnas que quieres, `FROM` y el nombre de la tabla. El asterisco `*` significa todas las columnas. Una consulta termina con `;`."
+      ],
+      "goal": "La consulta lee la tabla `orders`. Cámbiala para mostrar todas las columnas de la tabla `bricks`.",
+      "hints": [
+        "Mantén `SELECT * FROM` y cambia solo el nombre de la tabla.",
+        "El nombre de la tabla es `bricks`, en minúsculas, con una s.",
+        "`SELECT * FROM bricks;`"
+      ],
+      "recap": "`SELECT * FROM bricks;` lee todas las filas y todas las columnas de una tabla."
+    },
+    "pick-columns": {
+      "title": "Solo las columnas que necesitas",
+      "intro": [
+        "`*` es práctico para descubrir una tabla, pero normalmente solo necesitas algunas columnas. Escríbelas después de `SELECT`, separadas por comas.",
+        "Las columnas aparecen en el resultado en el orden en que las escribes."
+      ],
+      "goal": "Muestra solo el `name` y el `price` de cada ladrillo, en este orden.",
+      "hints": [
+        "Sustituye el `*` por los nombres de las columnas.",
+        "Separa las columnas con una coma: `name, price`.",
+        "`SELECT name, price FROM bricks;`"
+      ],
+      "recap": "`SELECT name, price` elige las columnas, en el orden en que las escribes."
+    },
+    "rename-columns": {
+      "title": "Renombrar una columna",
+      "intro": [
+        "Las columnas del resultado toman el nombre de las columnas de la tabla. `AS` da otro nombre a una columna en el resultado, sin cambiar la tabla.",
+        "Un nombre sin espacios es lo más sencillo: `in_stock` mejor que `in stock`."
+      ],
+      "goal": "Muestra el nombre de cada ladrillo como `brick` y su stock como `in_stock`.",
+      "hints": [
+        "Escribe `AS` y el nuevo nombre justo después de una columna: `name AS brick`.",
+        "Renombra las dos columnas, con una coma entre ellas.",
+        "`SELECT name AS brick, stock AS in_stock FROM bricks;`"
+      ],
+      "recap": "`AS` renombra una columna solo en el resultado: la tabla conserva sus nombres de columna."
+    },
+    "sort-rows": {
+      "title": "Ordenar las filas",
+      "intro": [
+        "Sin instrucciones, la base de datos devuelve las filas en cualquier orden. `ORDER BY` las ordena según una columna, después del `FROM`.",
+        "El orden es ascendente (el menor primero) por defecto. Añade `DESC` después de la columna para un orden descendente (el mayor primero)."
+      ],
+      "goal": "Muestra el nombre y el precio de cada ladrillo, el más caro primero.",
+      "hints": [
+        "Añade `ORDER BY price` al final de la consulta, antes del `;`.",
+        "El más caro primero es descendente: añade `DESC`.",
+        "`SELECT name, price FROM bricks ORDER BY price DESC;`"
+      ],
+      "recap": "`ORDER BY price DESC` ordena del valor mayor al menor; `ASC`, el valor por defecto, hace lo contrario."
+    },
+    "where-number": {
+      "title": "Filtrar las filas",
+      "intro": [
+        "`WHERE` conserva solo las filas que cumplen una condición. Va después del `FROM`: `WHERE stock = 0` conserva las filas cuyo stock es cero.",
+        "Los números se escriben tal cual, sin comillas. En SQL, un solo `=` compara dos valores."
+      ],
+      "goal": "Muestra el nombre y el stock de los ladrillos agotados (un stock de 0).",
+      "hints": [
+        "Añade una línea `WHERE` después de `FROM bricks`.",
+        "La condición compara la columna `stock` con `0`.",
+        "`SELECT name, stock FROM bricks WHERE stock = 0;`"
+      ],
+      "recap": "`WHERE stock = 0` conserva solo las filas en las que la condición es verdadera."
+    },
+    "where-compare": {
+      "title": "Más que, menos que",
+      "intro": [
+        "Los números se comparan con `<` (menor que), `>` (mayor que), `<=` (menor o igual), `>=` (mayor o igual) y `<>` (distinto).",
+        "Los decimales se escriben con un punto: `0.30`."
+      ],
+      "goal": "Muestra el nombre y el precio de los ladrillos que cuestan 0.30 o más.",
+      "hints": [
+        "`= 0.30` conserva solo los ladrillos de exactamente 0.30: necesitas otro operador.",
+        "0.30 incluido es mayor o igual: `>=`.",
+        "`SELECT name, price FROM bricks WHERE price >= 0.30;`"
+      ],
+      "recap": "`>=` incluye el propio valor, `>` lo excluye."
+    },
+    "where-text": {
+      "title": "El texto necesita comillas",
+      "intro": [
+        "Los valores de texto se escriben entre comillas simples: `'blue'`. Sin comillas, la base de datos lee `blue` como el nombre de una columna y se queja de que no existe.",
+        "El texto debe coincidir exactamente: `'blue'` y `'Blue'` son valores distintos."
+      ],
+      "goal": "Muestra el nombre y el color de los ladrillos azules (`blue`).",
+      "hints": [
+        "Añade una condición sobre la columna `color`.",
+        "Escribe el color entre comillas simples: `'blue'`.",
+        "`SELECT name, color FROM bricks WHERE color = 'blue';`"
+      ],
+      "recap": "El texto va entre comillas simples; los nombres de columnas y tablas, no."
+    },
+    "where-like": {
+      "title": "Un texto que empieza por…",
+      "intro": [
+        "`=` compara el texto entero: ningún ladrillo se llama solo `'Classic'`. `LIKE` compara el texto con un patrón, donde `%` sustituye a cualquier carácter, incluso a ninguno.",
+        "`'Classic%'` coincide con todo texto que empieza por Classic, `'%2'` con todo texto que termina en 2, `'%x%'` con todo texto que contiene una x."
+      ],
+      "goal": "Muestra el nombre y los tetones de cada ladrillo Classic (su nombre empieza por Classic).",
+      "hints": [
+        "Sustituye `=` por `LIKE`.",
+        "Añade `%` justo después de la palabra, dentro de las comillas.",
+        "`SELECT name, studs FROM bricks WHERE name LIKE 'Classic%';`"
+      ],
+      "recap": "`LIKE 'Classic%'` compara con un patrón: `%` sustituye a cualquier carácter."
+    },
+    "where-date": {
+      "title": "Las fechas",
+      "intro": [
+        "Las fechas se escriben como texto, entre comillas, en formato año-mes-día: `'2024-11-01'`. En este orden, la fecha más antigua es también la menor: `<` significa antes y `>` después.",
+        "Usa siempre dos cifras para el mes y el día: `'2024-11-01'`, no `'2024-11-1'`."
+      ],
+      "goal": "Muestra el cliente y la fecha de los pedidos hechos el 1 de noviembre de 2024 o después.",
+      "hints": [
+        "Añade una condición sobre la columna `ordered_on`.",
+        "El 1 de noviembre o después es `>=` con la fecha `'2024-11-01'`.",
+        "`SELECT customer, ordered_on FROM orders WHERE ordered_on >= '2024-11-01';`"
+      ],
+      "recap": "Las fechas van entre comillas, en formato año-mes-día: se comparan como números, la más antigua es la menor."
+    },
+    "where-and": {
+      "title": "Las dos condiciones: AND",
+      "intro": [
+        "`AND` une dos condiciones: una fila se conserva solo si las dos son verdaderas. Cada condición está completa por sí sola: `color = 'white' AND stock > 10`.",
+        "Cuantas más condiciones unidas con `AND`, menos filas en el resultado."
+      ],
+      "goal": "Muestra los ladrillos blancos (`white`) que tienen más de 10 ladrillos en stock.",
+      "hints": [
+        "Mantén la condición sobre el color y añade una segunda con `AND`.",
+        "La segunda condición es `stock > 10`.",
+        "`SELECT name, color, stock FROM bricks WHERE color = 'white' AND stock > 10;`"
+      ],
+      "recap": "Con `AND`, una fila debe cumplir todas las condiciones."
+    },
+    "where-or": {
+      "title": "Una u otra: OR",
+      "intro": [
+        "`OR` también une dos condiciones, pero una fila se conserva en cuanto al menos una de ellas es verdadera.",
+        "Repite la columna en cada condición: `color = 'red' OR color = 'green'`. `color = 'red' OR 'green'` no funciona."
+      ],
+      "goal": "Muestra los ladrillos rojos (`red`) y los ladrillos verdes (`green`).",
+      "hints": [
+        "Añade una segunda condición con `OR`.",
+        "La segunda condición también está completa: `color = 'green'`.",
+        "`SELECT name, color FROM bricks WHERE color = 'red' OR color = 'green';`"
+      ],
+      "recap": "Con `OR`, una fila debe cumplir al menos una condición."
+    },
+    "and-or": {
+      "title": "AND y OR juntos",
+      "intro": [
+        "Cuando una condición los mezcla, `AND` va primero, como × antes que + en matemáticas. `a OR b AND c` significa `a OR (b AND c)`.",
+        "Los paréntesis eligen el orden: `(a OR b) AND c` evalúa primero el `OR`."
+      ],
+      "goal": "La consulta devuelve 4 ladrillos, pero solo debería devolver los ladrillos rojos o amarillos que cuestan menos de 0.25. Corrígela.",
+      "hints": [
+        "Ahora mismo se conservan todos los ladrillos rojos, sea cual sea su precio: el precio solo se aplica a los amarillos.",
+        "Pon paréntesis alrededor de los dos colores.",
+        "`WHERE (color = 'red' OR color = 'yellow') AND price < 0.25`"
+      ],
+      "recap": "`AND` va antes que `OR`: añade paréntesis siempre que los mezcles, para que la consulta haga lo que quieres."
+    },
+    "where-in": {
+      "title": "Uno de una lista: IN",
+      "intro": [
+        "Varios `OR` sobre la misma columna se hacen largos. `IN` comprueba que un valor está en una lista: `customer IN ('Ana', 'Ben')` significa `customer = 'Ana' OR customer = 'Ben'`.",
+        "La lista va entre paréntesis, con sus valores separados por comas."
+      ],
+      "goal": "Muestra el cliente y la cantidad de los pedidos de Ana, Chloe y Farid.",
+      "hints": [
+        "Añade `WHERE customer IN (...)`.",
+        "Cada nombre es texto: entre comillas, separados por comas.",
+        "`WHERE customer IN ('Ana', 'Chloe', 'Farid')`"
+      ],
+      "recap": "`IN (...)` es una forma corta de escribir varios `OR` sobre la misma columna."
+    },
+    "date-between": {
+      "title": "Un periodo: BETWEEN",
+      "intro": [
+        "`BETWEEN` conserva los valores desde un inicio hasta un final, ambos incluidos: `quantity BETWEEN 10 AND 30` significa `quantity >= 10 AND quantity <= 30`.",
+        "Funciona con números, y con fechas escritas año-mes-día."
+      ],
+      "goal": "Muestra el nombre y la fecha de los ladrillos añadidos del 1 de marzo al 30 de junio de 2024.",
+      "hints": [
+        "Añade una condición sobre `added_on` con `BETWEEN ... AND ...`.",
+        "Las dos fechas son texto entre comillas: `'2024-03-01'` y `'2024-06-30'`.",
+        "`WHERE added_on BETWEEN '2024-03-01' AND '2024-06-30'`"
+      ],
+      "recap": "`BETWEEN` incluye los dos extremos del intervalo."
+    },
+    "date-parts": {
+      "title": "Una parte de la fecha",
+      "intro": [
+        "`strftime` extrae una parte de una fecha: `strftime('%Y', added_on)` da el año, `'%m'` el mes, `'%d'` el día.",
+        "Cuidado con los tipos: el resultado es texto, así que compáralo con texto, `'2023'`, no con el número `2023`."
+      ],
+      "goal": "Muestra el nombre y la fecha de los ladrillos añadidos en 2023.",
+      "hints": [
+        "Añade una condición que compare `strftime('%Y', added_on)` con el año.",
+        "El año es texto: escríbelo entre comillas.",
+        "`WHERE strftime('%Y', added_on) = '2023'`"
+      ],
+      "recap": "`strftime` devuelve texto: `'2023'` coincide, el número `2023` no."
+    },
+    "insert-row": {
+      "title": "Añadir una fila: INSERT",
+      "intro": [
+        "`INSERT INTO` añade una fila a una tabla: la lista de columnas, y después `VALUES` con un valor por columna, en el mismo orden.",
+        "Cada valor debe tener el tipo correcto: los números tal cual, el texto y las fechas entre comillas."
+      ],
+      "goal": "Añade el ladrillo verde Classic 1x2 (id 11) a la tabla `bricks`: corrige los valores para que la consulta se ejecute.",
+      "hints": [
+        "La base de datos se detiene en `Classic 1x2`: el texto necesita comillas.",
+        "`'green'` también es texto, y la fecha también: sin comillas, `2024-11-09` es una resta.",
+        "`VALUES (11, 'Classic 1x2', 'green', 2, 0.10, 60, '2024-11-09');`"
+      ],
+      "recap": "Los números tal cual, el texto y las fechas entre comillas: cada valor con su tipo, en el orden de las columnas."
+    },
+    "insert-defaults": {
+      "title": "Deja que la base complete",
+      "intro": [
+        "Un `id` declarado `INTEGER PRIMARY KEY` lo elige la base de datos cuando lo omites: el siguiente número libre. Dos filas no pueden tener el mismo id.",
+        "Una columna con un `DEFAULT` toma su valor por defecto cuando la omites: el estado de un pedido es `'pending'`."
+      ],
+      "goal": "El pedido de Gina falla: el id 1 ya está ocupado. Insértalo de nuevo dejando que la base elija el `id` y el `status`.",
+      "hints": [
+        "Quita `id` y `status` de la lista de columnas.",
+        "Quita también sus valores: los valores deben corresponder a las columnas, uno a uno.",
+        "`INSERT INTO orders (customer, brick_id, quantity, ordered_on) VALUES ('Gina', 3, 20, '2024-11-12');`"
+      ],
+      "recap": "Omite una columna y la base la rellena: el siguiente id, el valor por defecto o `NULL`."
+    },
+    "update-one": {
+      "title": "Modificar una fila: UPDATE",
+      "intro": [
+        "`UPDATE` modifica filas que ya existen: `UPDATE` la tabla, `SET` la columna a su nuevo valor, y `WHERE` para elegir las filas.",
+        "Sin `WHERE`, cambian todas las filas de la tabla. Escribe primero el `WHERE`, por seguridad."
+      ],
+      "goal": "La Plate 1x6 amarilla (id 3) ha vuelto: pon su stock a 200, sin modificar ningún otro ladrillo.",
+      "hints": [
+        "Sustituye el `SELECT` por `UPDATE bricks SET ...`.",
+        "Mantén `WHERE id = 3` para modificar solo este ladrillo.",
+        "`UPDATE bricks SET stock = 200 WHERE id = 3;`"
+      ],
+      "recap": "`UPDATE ... SET ... WHERE` modifica solo las filas elegidas por el `WHERE`."
+    },
+    "update-math": {
+      "title": "Calcular el nuevo valor",
+      "intro": [
+        "El nuevo valor se puede calcular a partir del actual: `quantity * 2` duplica la cantidad propia de cada fila. Puedes usar `+`, `-`, `*` y `/`.",
+        "Cada fila se calcula a partir de su propio valor, así que una sola consulta modifica muchas filas de forma distinta."
+      ],
+      "goal": "Sube 0.05 el precio de cada ladrillo rojo, a partir de su precio actual.",
+      "hints": [
+        "`price = 0.50` da el mismo precio a todos los ladrillos rojos: calcúlalo a partir de `price`.",
+        "Suma 0.05 al precio actual: `price + 0.05`.",
+        "`UPDATE bricks SET price = price + 0.05 WHERE color = 'red';`"
+      ],
+      "recap": "`SET price = price + 0.05` calcula el nuevo valor de cada fila a partir de su valor actual."
+    },
+    "update-where": {
+      "title": "Enviar los pedidos atrasados",
+      "intro": [
+        "Esta consulta no tiene `WHERE`: envía todos los pedidos, incluso los cancelados. Olvidar el `WHERE` es el error más común con `UPDATE`.",
+        "Usa lo que has aprendido: condiciones unidas con `AND`, el texto y las fechas entre comillas."
+      ],
+      "goal": "Envía (estado `'shipped'`) solo los pedidos pendientes hechos antes del 1 de noviembre de 2024.",
+      "hints": [
+        "Añade un `WHERE` con dos condiciones unidas por `AND`.",
+        "Una condición sobre `status`, otra sobre `ordered_on` con `<`.",
+        "`UPDATE orders SET status = 'shipped' WHERE status = 'pending' AND ordered_on < '2024-11-01';`"
+      ],
+      "recap": "Sabes leer, filtrar, añadir y modificar datos: `SELECT`, `WHERE`, `INSERT` y `UPDATE` son la base de toda base de datos SQL."
+    }
+  }
+}
