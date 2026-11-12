@@ -129,4 +129,9 @@ placeholders and inline code as English.
 
 ## Contributing
 
-Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md). To report a vulnerability, see
+[SECURITY.md](SECURITY.md).
+
+## License
+
+[MIT](LICENSE) © Sergio Lema
