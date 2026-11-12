@@ -12,6 +12,11 @@
       "de": "Deutsch"
     }
   },
+  "footer": {
+    "github": "Código fuente en GitHub",
+    "linkedin": "LinkedIn",
+    "blog": "Blog"
+  },
   "codeComments": {
     "everyColumn": "* significa todas las columnas",
     "biggestFirst": "la mayor primero",
